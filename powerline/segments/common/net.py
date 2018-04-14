@@ -22,8 +22,6 @@ def hostname(pl, segment_info, only_if_ssh=False, exclude_domain=False):
 	:param bool exclude_domain:
 		return the hostname without domain if there is one
 	'''
-	if only_if_ssh and not segment_info['environ'].get('SSH_CLIENT'):
-		return None
 	if exclude_domain:
 		return socket.gethostname().split('.')[0]
 	return socket.gethostname()
